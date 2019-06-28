@@ -1,0 +1,47 @@
+
+
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="./myapp/static/myapp/style.css">
+    </head>
+    <body >
+        <br>
+        <div class="container">
+            <nav class="navbar" style="color: white">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand link" href="/myapp/">MySite Group : 6</a>
+              </div>
+              <div id="navbar" class="navbar-collapse collapse">
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <a href="/myapp/order/">My Orders</a>&nbsp;&nbsp;
+                    <a href="/myapp/place_order/"> Place Orders</a>&nbsp;&nbsp;&nbsp;
+                    <a class="link" href="{% url 'myapp:logout' %}">Log out</a>
+                </ul>
+                {% else %}
+
+                <ul class="nav navbar-nav navbar-right">
+                  <a class="link" href="{% url 'myapp:login' %}">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a class="link" href="{% url 'myapp:register' %}">Register</a>
+                </ul>
+                {% endif %}
+              </div>
+            </div>
+          </nav>
+        </div>
+        {% block body %}
+
+        {% endblock %}
+    </body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+<body>
+
+
+<p><a href="{%  url 'myapp:index' %}">Index Page</a></p>
+        <h2> {{  details.name }} &nbsp; &nbsp; {{ details.warehouse }}</h2>
+
+        <ol>
+            {% for product in product_details %}
+                <li> {{ product.name }} </li>
+            {% endfor %}
+        </ol>
+
+
+
+
+</body>
+</html>

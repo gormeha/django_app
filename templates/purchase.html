@@ -1,0 +1,109 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="./style.css">
+
+  </head>
+
+    <body style="background-color: #003333 ; color: #f9f9f9" >
+    <div class="container-fluid" style="text-align: center">
+    		<div class="col-md-2">
+            <img src="../Images/logo.png" style="width:100px;height:100px; margin: 20px">
+        </div>
+        <div calss="col-md-10">
+
+        <h1>Welcome to LifeSport Store!!</h1>
+    	<h2>This is the Purchase online page</h2>
+    	<h3 class="myh3">Your Order Details</h3>
+        </div>
+            <hr/>
+
+
+         <div class="row">
+             <div class="col-sm-3">
+                 <a href="index.html">Home</a>
+             </div>
+             <div class="col-sm-3">
+                 <a href = "about.html">About</a>
+             </div>
+             <div class="col-sm-3">
+                 <a href = "myacct.html">My Account</a>
+             </div>
+             <div class="col-sm-3">
+                 <a href = "purchase.html">Purchase Online</a>
+             </div>
+        </div>
+
+        <hr/>
+
+        <div class="row">
+            <form style="padding: 100px" method="post" onsubmit="msg()">
+                <div class="col-md-6">
+                Enter name:
+                 </div>
+                <div class="col-md-6">
+                <input type="text" name="name" required style="color: black"><br><br>
+                </div>
+                <div class="col-md-6">
+                Email :
+                </div>
+                 <div class="col-md-6">
+                <input type="text" name="Email" required style="color: black"><br><br>
+                     </div>
+                 <div class="col-md-6">
+                Method Of Payment :
+                     </div>
+                 <div class="col-md-6">
+                <input type="radio" name="pay" value="Debit" checked required> Debit
+                <input type="radio" name="pay" value="Credit" required> Credit<br><br>
+                     </div>
+                 <div class="col-md-6">
+                Items To Purchase :
+                     </div>
+                 <div class="col-md-6">
+                <input type="text" name="items" required style="color: black"><br><br>
+                     </div>
+                 <div class="col-md-6">
+                Address :
+                     </div>
+                 <div class="col-md-6">
+                <textarea rows="4" cols="50" style="color: black"></textarea><br><br>
+</div>
+
+
+                 <div class="col-md-12">
+                <input type="checkbox" name="receive"  style="color: black">
+                &nbsp;&nbsp;
+                Do you want to receive Emails and Updates ? <br><br><br>
+                     </div>
+                 <div class="col-md-12">
+
+                <input type="submit" value="Submit" style="color: black">
+                 </div>
+</form>
+
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+     function msg(){
+
+             alert(" Your order was Successfully Submitted!!");
+
+     }
+
+</script>
+
+    </body>
+
+
+</html>

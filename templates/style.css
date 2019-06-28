@@ -1,0 +1,33 @@
+a{
+    color: white;
+}
+body {
+    background-image: url("../Images/back.jpg");
+    color: white;
+    background-repeat: no-repeat;
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
+
+h2{
+    color: white;
+    text-align: center;
+}
+
+#about{
+
+    font-size: 25px;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+
+.logo{
+    width:100px;
+    height:100px;
+    margin: 20px;
+}

@@ -1,0 +1,20 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Product details{% endblock %}
+{% block body_block %}
+        <h2>{{ product.name }}</h2>
+            <p>Category: {{ product.category }}</p>
+            <p>Price: {{ product.price }}</p>
+            <p>People Interested: {{ product.intrested }}</p>
+            <p>Available: {{ product.available }}</p>
+            <p>Stock: {{ product.stock }}</p>
+            <p>Description: {{ product.description }}</p>
+            {% if not product.available %}
+                <h2>This Product is not available</h2>
+            {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="submit">
+    </form>
+{% endblock %}

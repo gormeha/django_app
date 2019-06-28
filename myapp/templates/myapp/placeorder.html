@@ -1,0 +1,13 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}place order!{% endblock %}
+{% block body %}
+
+    <h2>Place the order here.</h2>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="submit">
+    </form>
+{% endblock %}

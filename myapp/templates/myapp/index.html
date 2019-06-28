@@ -1,0 +1,24 @@
+{% extends 'myapp/base.html' %}
+
+{% block body %}
+
+    <div style="text-align: center">
+
+            {% if user.is_authenticated %}
+                <h1>Hello {{ user.username }}!!</h1>
+            {% endif %}
+            {% if product_list %}
+                <h2>List of Categories</h2>
+
+            {% for cat in product_list %}
+                <div><a href="/myapp/detail/{{cat.id }}">{{ cat.name }}</a></div>
+            {% endfor %}
+
+    {% else %}
+        <strong>There are no available categories!</strong>
+    {% endif %}
+
+     <!-- <h3>Last Log in : {{ last_log }} </h3> -->
+    </div>
+
+{% endblock %}

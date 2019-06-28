@@ -1,0 +1,23 @@
+h1{
+    background: #fff;
+    text: #8585;
+    font-size: 20px;
+    font-color: aqua;
+    font-style: italic;
+    position: relative;
+}
+
+body{
+ background-color: #003333;
+    color: white;
+
+}
+
+.hbar1{
+    display: inline;
+    margin: 15px;
+}
+
+a{
+    color: white;
+}
