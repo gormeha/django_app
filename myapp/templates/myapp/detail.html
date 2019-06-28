@@ -2,25 +2,21 @@
 {% block body %}
 
 
-    <table align="center">
-        <thead>
-            <th colspan="2">
-                <td>
-                    <h2> {{  details.name }}  </h2>
-                </td>
-                <td>
-                </td>
-                <td>
-                    <h2> {{  details.warehouse }}  </h2>
-                </td>
-            </th>
-        </thead>
-        <tbody>
+    <div class="col-md-6" style="text-align: center">
+                    <h2> Category Name:{{  details.name }}  </h2>
+
+    </div>
+    <div class="col-md-6" style="text-align: center">
+                    <h2>  Warehouse location :{{  details.warehouse }}  </h2>
+    </div>
+
+    <div style="text-align: center">
+        {% if user.is_authenticated %}
         {% for product in product_details %}
                 <tr align="center">
-                    <td colspan="1"> {{ product.name }}</td>
+                    <div><a href="/myapp/products/{{product.id }}">{{ product.name }}</a></div>
                 </tr>
         {% endfor %}
-        </tbody>
-    </table>
+        {% endif %}
+    </div>
 {% endblock %}

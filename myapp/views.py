@@ -57,10 +57,10 @@ def about(request):
 
 
 def detail(request, cat_no):
-    response = HttpResponse()
+   # response = HttpResponse()
     details = get_object_or_404(Category, id=cat_no)
-    text1 = '<p>'+str(details.name)+': ' + str(details.warehouse)+'</p>'
-    response.write(text1)
+    #text1 = '<p>'+str(details.name)+': ' + str(details.warehouse)+'</p>'
+    #response.write(text1)
     product_details = Product.objects.filter(category_id=cat_no)
    # for product in product_details:
        # pro = '<p>' + str(product.name) + ': ' + str(product.price) + '</p>'
@@ -85,7 +85,7 @@ def place_order(request):
                 msg = 'Order placed succesfully.'
             else:
                 msg = 'We dont have sufficient stock to fill your order.'
-            return render(request, 'myapp/order_response.html' , {'msg':msg})
+            return render(request, 'myapp/order_response.html', {'msg':msg})
     else:
         form = OrderForm()
     return render(request, 'myapp/placeorder.html', {'form':form, 'msg':msg, 'prodlist':prodlist})
@@ -117,16 +117,18 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                current_login_time = str(datetime.now())
                 # session parameter last_login
-                request.session['last_login'] = current_login_time
+                #request.session['last_login'] = current_login_time
                 request.session.set_expiry(3600)
                 request.session['username'] = username
                 # set session expiry to 1 hour
                 if 'next' in request.POST:
                     return redirect(request.POST.get('next'))
                 else:
-                    return HttpResponseRedirect(reverse('myapp:index'))
+                    user = User.objects.get(username=username)
+                    last_login = user.last_login
+                    url = reverse('myapp:index', kwargs={'last_login':last_login})
+                    return HttpResponseRedirect(url)
             else:
                 return HttpResponse('Your account is disabled.')
         else:
@@ -145,13 +147,14 @@ def register(request):
         form = RegistrationForm()
     return render(request,'myapp/register.html', {'form': form})
 
-@login_required(login_url="myapp/login/")
+@login_required(login_url="/myapp/login/")
 def myorders(request):
     if request.session.has_key('username'):
         username = request.session['username']
-        client = Client.objects.filter(first_name__contains=username)
-        order = Order.objects.filter(id=client.id)
-        return render(request, 'myapp:my_order', {'order': order})
+       # client = Client.objects.filter(username=username)
+
+        order = Order.objects.filter(client__username=username)
+        return render(request, 'myapp/myorder.html', {'order': order})
 
 
 

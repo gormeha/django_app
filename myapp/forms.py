@@ -28,7 +28,7 @@ class RegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'password1', 'password2' )
+        fields = ('username', 'first_name', 'last_name', 'password1', 'password2','profile_pic')
 
 #class LoginForm(forms.ModelForm):
 #    username = forms.CharField(max_length=20, required=True, label='User Name')

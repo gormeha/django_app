@@ -14,9 +14,14 @@
                 <div><a href="/myapp/detail/{{cat.id }}">{{ cat.name }}</a></div>
             {% endfor %}
 
-    {% else %}
-        <strong>There are no available categories!</strong>
-    {% endif %}
+            {% else %}
+                <strong>There are no available categories!</strong>
+            {% endif %}
+            {% if last_login %}
+                <p>Last Login Time : </p>{{last_login}}
+            {% else %}
+                <p>Your login was more than one hour ago</p>
+            {% endif %}
 
      <!-- <h3>Last Log in : {{ last_log }} </h3> -->
     </div>
